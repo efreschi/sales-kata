@@ -8,7 +8,7 @@ public class ImportDutyTaxTest {
 
 	@Test
 	public void testImportedDutyTaxInput1() {
-		Item item = new Item("imported box of chocolates", Item.ItemType.BOOK, true, 10.00);
+		Item item = new Item("imported box of chocolates", Item.ItemType.FOOD, true, 10.00);
 		
 		Tax basicSalesTax = new ImportDutyTax();
 		double tax = basicSalesTax.apply(item);
@@ -22,5 +22,14 @@ public class ImportDutyTaxTest {
 		Tax basicSalesTax = new ImportDutyTax();
 		double tax = basicSalesTax.apply(item);
 		assertThat(tax).isEqualTo(2.4);
+	}
+
+	@Test
+	public void testNotImportedDutyTaxInput3() {
+		Item item = new Item("imported box of chocolates", Item.ItemType.FOOD, false, 10.00);
+		
+		Tax basicSalesTax = new ImportDutyTax();
+		double tax = basicSalesTax.apply(item);
+		assertThat(tax).isEqualTo(0D);
 	}
 }

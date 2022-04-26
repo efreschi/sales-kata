@@ -24,4 +24,12 @@ public class BasicSalesTaxTest {
 		assertThat(tax).isEqualTo(4.75);
 	}
 
+	@Test
+	public void testObjectPriceImportedTaxInput1() {
+		Item item = new Item("book", Item.ItemType.BOOK, true, 12.49);
+		
+		Tax basicSalesTax = new BasicSalesTax();
+		double tax = basicSalesTax.apply(item);
+		assertThat(tax).isEqualTo(1.25);
+	}
 }
