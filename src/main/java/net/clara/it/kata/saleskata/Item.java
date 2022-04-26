@@ -6,8 +6,12 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Item {
+	
+	public static enum ItemType {
+		BOOK, FOOD, MEDICAL, OTHER;
+	}
 
 	private String name;
-	private String type;
+	private ItemType type;
 	private double price;
 }
