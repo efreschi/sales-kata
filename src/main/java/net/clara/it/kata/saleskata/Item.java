@@ -13,5 +13,6 @@ public class Item {
 
 	private String name;
 	private ItemType type;
+	private boolean imported = false;
 	private double price;
 }

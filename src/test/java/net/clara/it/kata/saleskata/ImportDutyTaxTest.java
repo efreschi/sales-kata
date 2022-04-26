@@ -8,7 +8,7 @@ public class ImportDutyTaxTest {
 
 	@Test
 	public void testImportedDutyTaxInput1() {
-		Item item = new Item("imported box of chocolates", Item.ItemType.BOOK, 10.00);
+		Item item = new Item("imported box of chocolates", Item.ItemType.BOOK, true, 10.00);
 		
 		Tax basicSalesTax = new ImportDutyTax();
 		double tax = basicSalesTax.apply(item);
@@ -17,7 +17,7 @@ public class ImportDutyTaxTest {
 
 	@Test
 	public void testImportedDutyTaxInput2() {
-		Item item = new Item("imported bottle of perfume", Item.ItemType.OTHER, 47.5);
+		Item item = new Item("imported bottle of perfume", Item.ItemType.OTHER, true, 47.5);
 		
 		Tax basicSalesTax = new ImportDutyTax();
 		double tax = basicSalesTax.apply(item);

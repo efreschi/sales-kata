@@ -8,7 +8,7 @@ public class ItemOutputTest {
 	
 	@Test
 	public void test_InstanceGoodAndOutput() {
-		Item item = new Item("book", Item.ItemType.BOOK, 12.49);
+		Item item = new Item("book", Item.ItemType.BOOK, true, 12.49);
 		ItemOutput itemOutput = new ItemOutput();
 		String res = itemOutput.output(item);
 		assertThat(res).isEqualToIgnoringCase("book: 12.49");
