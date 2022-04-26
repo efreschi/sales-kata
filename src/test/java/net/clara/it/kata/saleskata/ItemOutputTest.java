@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class ItemOutputTest {
 	
 	@Test
-	public void test_ìInstanceGoodAndOutput() {
+	public void test_InstanceGoodAndOutput() {
 		Item item = new Item("book", Item.ItemType.BOOK, 12.49);
 		ItemOutput itemOutput = new ItemOutput();
 		String res = itemOutput.output(item);
