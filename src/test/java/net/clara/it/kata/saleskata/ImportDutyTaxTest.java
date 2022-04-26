@@ -4,14 +4,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
-public class BasicSalesTaxTest {
+public class ImportDutyTaxTest {
 
 	@Test
 	public void testObjectPriceTaxInput1() {
-		Item item = new Item("book", Item.ItemType.BOOK, 12.49);
+		Item item = new Item("imported box of chocolates", Item.ItemType.BOOK, 10.00);
 		
-		Tax basicSalesTax = new BasicSalesTax();
+		Tax basicSalesTax = new ImportDutyTax();
 		double tax = basicSalesTax.apply(item);
-		assertThat(tax).isEqualTo(1.25);
+		assertThat(tax).isEqualTo(0.5);
 	}
 }
