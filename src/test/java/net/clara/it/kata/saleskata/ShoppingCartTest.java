@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 public class ShoppingCartTest {
+	
+	private static final String SEP = System.getProperty("line.separator");
 
 	@Test
 	public void testShoppingCart() {
@@ -12,6 +14,6 @@ public class ShoppingCartTest {
 		cart1.addItem(2, new Item("book", Item.ItemType.BOOK, false, 12.49));
 		
 		String receipt = cart1.getReceipt();
-		assertThat(receipt).isEqualTo("2 book: 24.98" + System.getProperty("line.separator"));
+		assertThat(receipt).isEqualTo(String.format("2 book: 24.98%sSales Taxes: 0.0%sTotal: 24.98", SEP, SEP));
 	}
 }

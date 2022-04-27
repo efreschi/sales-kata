@@ -16,7 +16,7 @@ public class ItemOutputTest {
 		when(itemTax.apply(item)).thenReturn(0D);
 		
 		ItemOutput itemOutput = new ItemOutput(itemTax);
-		String res = itemOutput.output(1, item);
+		String res = itemOutput.output(1, item, (t) -> {}, (i) -> {});
 		assertThat(res).isEqualToIgnoringCase("1 book: 12.49");
 	}
 
@@ -28,7 +28,7 @@ public class ItemOutputTest {
 		when(itemTax.apply(item)).thenReturn(0d);
 		
 		ItemOutput itemOutput = new ItemOutput(itemTax);
-		String res = itemOutput.output(2, item);
+		String res = itemOutput.output(2, item, (t) -> {}, (i) -> {});
 		assertThat(res).isEqualToIgnoringCase("2 book: 24.98");
 	}
 
@@ -40,7 +40,7 @@ public class ItemOutputTest {
 		when(itemTax.apply(item)).thenReturn(1.5);
 		
 		ItemOutput itemOutput = new ItemOutput(itemTax);
-		String res = itemOutput.output(1, item);
+		String res = itemOutput.output(1, item, (t) -> {}, (i) -> {});
 		assertThat(res).isEqualToIgnoringCase("1 music CD: 16.49");
 	}
 
@@ -52,7 +52,7 @@ public class ItemOutputTest {
 		when(itemTax.apply(item)).thenReturn(0.6);
 		
 		ItemOutput itemOutput = new ItemOutput(itemTax);
-		String res = itemOutput.output(3, item);
+		String res = itemOutput.output(3, item, (t) -> {}, (i) -> {});
 		assertThat(res).isEqualToIgnoringCase("3 box of imported chocolates: 35.55");
 	}
 
@@ -64,7 +64,7 @@ public class ItemOutputTest {
 		when(itemTax.apply(item)).thenReturn(1.9);
 		
 		ItemOutput itemOutput = new ItemOutput(itemTax);
-		String res = itemOutput.output(1, item);
+		String res = itemOutput.output(1, item, (t) -> {}, (i) -> {});
 		assertThat(res).isEqualToIgnoringCase("1 bottle of perfume: 20.89");
 	}
 }

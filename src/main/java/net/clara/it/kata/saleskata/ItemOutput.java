@@ -1,6 +1,7 @@
 package net.clara.it.kata.saleskata;
 
 import java.math.BigDecimal;
+import java.util.function.Consumer;
 
 public class ItemOutput {
 	
@@ -11,13 +12,17 @@ public class ItemOutput {
 		this.itemTax = itemTax;
 	}
 
-	public String output(int card, Item item) {
-		return String.format("%s %s: %s", card, item.getName(), getItemTotalPrice(card, item));
+	public String output(int card, Item item, Consumer<Double> totalTax, Consumer<Double> totalItems) {
+		Double totalPriceItem = getItemTotalPrice(card, item, totalTax);
+		totalItems.accept(totalPriceItem);
+		return String.format("%s %s: %s", card, item.getName(), totalPriceItem);
 	}
 	
-	protected double getItemTotalPrice(int card, Item item) {
+	protected double getItemTotalPrice(int card, Item item, Consumer<Double> totalTax) {
+		Double tax = itemTax.apply(item);
+		totalTax.accept(tax);
 		return new BigDecimal("" + card)
-				.multiply(new BigDecimal("" + item.getPrice()).add(new BigDecimal("" + itemTax.apply(item))))
+				.multiply(new BigDecimal("" + item.getPrice()).add(new BigDecimal("" + tax)))
 				.doubleValue();
 	}
 
