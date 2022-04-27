@@ -12,7 +12,7 @@ public class ItemOutput {
 	}
 
 	public String output(int card, Item item) {
-		return card + " " + item.getName() + ": " + getItemTotalPrice(card, item);
+		return String.format("%s %s: %s", card, item.getName(), getItemTotalPrice(card, item));
 	}
 	
 	protected double getItemTotalPrice(int card, Item item) {
