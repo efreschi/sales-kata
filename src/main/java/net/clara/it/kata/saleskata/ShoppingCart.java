@@ -18,8 +18,8 @@ public class ShoppingCart {
 	}
 	
 	private class Totali {
-		private double totalTax;
-		private double totalCart;
+		private double totalTax = 0d;
+		private double totalCart = 0d;
 	}
 	
 	private List<ShoppingItem> shoppingCart = new ArrayList<ShoppingItem>();
@@ -36,8 +36,8 @@ public class ShoppingCart {
 	
 	public String getReceipt() {
 		final Totali totali = new Totali();
-		Consumer<Double> calcolatoreTotalTax = (t) -> totali.totalTax = BigDecimal.valueOf(totali.totalTax).add(BigDecimal.valueOf(t)).doubleValue();
-		Consumer<Double> calcolatoreTotalCart = (t) -> totali.totalCart = BigDecimal.valueOf(totali.totalCart).add(BigDecimal.valueOf(t)).doubleValue();
+		Consumer<Double> calcolatoreTotalTax = (t) -> totali.totalTax = new BigDecimal("" + totali.totalTax).add(new BigDecimal("" + t)).doubleValue();
+		Consumer<Double> calcolatoreTotalCart = (t) -> totali.totalCart = new BigDecimal("" + totali.totalCart).add(new BigDecimal("" + t)).doubleValue();
 		
 		StringBuilder sb = new StringBuilder();
 		for (ShoppingItem shoppingItem: shoppingCart) {

@@ -1,5 +1,6 @@
 package net.clara.it.kata.saleskata;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -23,7 +24,7 @@ public class ItemTax implements Tax {
 	public double apply(Item item) {
 		Double total = 0.0D;
 		for(Tax tax : taxes){
-            total = total + tax.apply(item);
+            total = new BigDecimal("" + total).add(new BigDecimal("" + tax.apply(item))).doubleValue();
         }
         return total;
 	}
