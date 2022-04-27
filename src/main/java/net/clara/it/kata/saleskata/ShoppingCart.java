@@ -1,5 +1,6 @@
 package net.clara.it.kata.saleskata;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -35,8 +36,8 @@ public class ShoppingCart {
 	
 	public String getReceipt() {
 		final Totali totali = new Totali();
-		Consumer<Double> calcolatoreTotalTax = (t) -> totali.totalTax = totali.totalTax + t;
-		Consumer<Double> calcolatoreTotalCart = (t) -> totali.totalCart = totali.totalCart + t;
+		Consumer<Double> calcolatoreTotalTax = (t) -> totali.totalTax = BigDecimal.valueOf(totali.totalTax).add(BigDecimal.valueOf(t)).doubleValue();
+		Consumer<Double> calcolatoreTotalCart = (t) -> totali.totalCart = BigDecimal.valueOf(totali.totalCart).add(BigDecimal.valueOf(t)).doubleValue();
 		
 		StringBuilder sb = new StringBuilder();
 		for (ShoppingItem shoppingItem: shoppingCart) {

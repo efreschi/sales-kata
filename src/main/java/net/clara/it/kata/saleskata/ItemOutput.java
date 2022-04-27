@@ -20,7 +20,9 @@ public class ItemOutput {
 	
 	protected double getItemTotalPrice(int card, Item item, Consumer<Double> totalTax) {
 		Double tax = itemTax.apply(item);
-		totalTax.accept(tax);
+		for (int i = 0; i < card; i++) {
+			totalTax.accept(tax);
+		}
 		return new BigDecimal("" + card)
 				.multiply(new BigDecimal("" + item.getPrice()).add(new BigDecimal("" + tax)))
 				.doubleValue();
