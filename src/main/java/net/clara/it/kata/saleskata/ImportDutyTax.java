@@ -2,7 +2,7 @@ package net.clara.it.kata.saleskata;
 
 import java.math.BigDecimal;
 
-public class ImportDutyTax extends Tax {
+public class ImportDutyTax extends RateTax {
 	
 	private static final BigDecimal RATE = new BigDecimal("0.05");
 

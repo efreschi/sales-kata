@@ -6,7 +6,7 @@ import java.util.Set;
 
 import net.clara.it.kata.saleskata.Item.ItemType;
 
-public class BasicSalesTax extends Tax {
+public class BasicSalesTax extends RateTax {
 	
 	private static final BigDecimal RATE = new BigDecimal("0.1");
 

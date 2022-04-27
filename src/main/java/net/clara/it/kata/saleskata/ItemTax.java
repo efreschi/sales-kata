@@ -13,7 +13,7 @@ public class ItemTax {
 	private static Set<ItemType> exemptTypes = new HashSet<ItemType>(
 			Arrays.asList(Item.ItemType.BOOK, Item.ItemType.FOOD, Item.ItemType.MEDICAL));
 
-	private List<Tax> taxes = new ArrayList<Tax>();
+	private List<RateTax> taxes = new ArrayList<RateTax>();
 
 	public ItemTax() {
 		super();
@@ -23,14 +23,14 @@ public class ItemTax {
 	
 	public double apply(Item item) {
 		Double total = 0.0D;
-		for(Tax tax : taxes){
+		for(RateTax tax : taxes){
             total = total + tax.apply(item);
         }
         return total;
 	}
 	
 
-	public static Set<ItemType> getExemptTypes() {
+	public static Set<ItemType> getDefaultExemptTypes() {
 		return exemptTypes;
 	}
 	

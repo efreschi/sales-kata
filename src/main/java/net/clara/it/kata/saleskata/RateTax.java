@@ -3,11 +3,11 @@ package net.clara.it.kata.saleskata;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public abstract class Tax {
+public abstract class RateTax {
 
 	private static final BigDecimal VENTI = new BigDecimal("20");
 
-	public Tax() {
+	public RateTax() {
 		super();
 	}
 
