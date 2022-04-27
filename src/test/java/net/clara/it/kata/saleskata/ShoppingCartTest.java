@@ -12,6 +12,6 @@ public class ShoppingCartTest {
 		cart1.addItem(2, new Item("book", Item.ItemType.BOOK, false, 12.49));
 		
 		String receipt = cart1.getReceipt();
-		assertThat(receipt).isNull();
+		assertThat(receipt).isEqualTo("2 book: 24.98" + System.getProperty("line.separator"));
 	}
 }

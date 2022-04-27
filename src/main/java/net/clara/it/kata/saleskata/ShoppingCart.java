@@ -15,7 +15,7 @@ public class ShoppingCart {
 		private Item item;
 	}
 	
-	private List<ShoppingItem> shoppingCard = new ArrayList<ShoppingItem>();
+	private List<ShoppingItem> shoppingCart = new ArrayList<ShoppingItem>();
 	private ItemOutput itemOutput;
 	
 	public ShoppingCart(ItemOutput itemOutput) {
@@ -24,11 +24,16 @@ public class ShoppingCart {
 	}
 
 	public void addItem(int card, Item item) {
-		shoppingCard.add(new ShoppingItem(card, item));
+		shoppingCart.add(new ShoppingItem(card, item));
 	}
 	
 	public String getReceipt() {
-		return null;
+		StringBuilder sb = new StringBuilder();
+		for (ShoppingItem shoppingItem: shoppingCart) {
+			sb.append(itemOutput.output(shoppingItem.getCard(), shoppingItem.getItem()));
+			sb.append(System.getProperty("line.separator"));
+		}
+		return sb.toString();
 	}
 
 }
