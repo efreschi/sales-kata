@@ -10,7 +10,7 @@ public class ItemTaxTest {
 	public void testItemTaxForImportedBottlePerfume() {
 		Item item = 
 				new Item("imported bottle of perfume", Item.ItemType.OTHER, true, 47.5);
-		ItemTax taxItem = new ItemTax();
+		Tax taxItem = new ItemTax();
 		double tax = taxItem.apply(item);
 		assertThat(tax).isEqualTo(7.15);
 		
@@ -20,7 +20,7 @@ public class ItemTaxTest {
 	public void testItemTaxForBook() {
 		Item item = 
 				new Item("book", Item.ItemType.BOOK, false, 12.49);
-		ItemTax taxItem = new ItemTax();
+		Tax taxItem = new ItemTax();
 		double tax = taxItem.apply(item);
 		assertThat(tax).isEqualTo(0D);
 		
@@ -30,7 +30,7 @@ public class ItemTaxTest {
 	public void testItemTaxForMusicCDk() {
 		Item item = 
 				new Item("music CD", Item.ItemType.OTHER, false, 14.99);
-		ItemTax taxItem = new ItemTax();
+		Tax taxItem = new ItemTax();
 		double tax = taxItem.apply(item);
 		assertThat(tax).isEqualTo(1.5);
 		

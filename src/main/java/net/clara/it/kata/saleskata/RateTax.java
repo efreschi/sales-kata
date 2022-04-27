@@ -3,7 +3,7 @@ package net.clara.it.kata.saleskata;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public abstract class RateTax {
+public abstract class RateTax implements Tax {
 
 	private static final BigDecimal VENTI = new BigDecimal("20");
 

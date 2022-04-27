@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 public class ItemOutput {
 	
-	private ItemTax itemTax;
+	private Tax itemTax;
 
-	public ItemOutput(ItemTax itemTax) {
+	public ItemOutput(Tax itemTax) {
 		super();
 		this.itemTax = itemTax;
 	}

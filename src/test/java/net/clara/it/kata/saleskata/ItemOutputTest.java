@@ -12,7 +12,7 @@ public class ItemOutputTest {
 	public void testItemOutputForBook() {
 		Item item = new Item("book", Item.ItemType.BOOK, false, 12.49);
 
-		ItemTax itemTax = mock(ItemTax.class);
+		Tax itemTax = mock(ItemTax.class);
 		when(itemTax.apply(item)).thenReturn(0D);
 		
 		ItemOutput itemOutput = new ItemOutput(itemTax);
@@ -24,7 +24,7 @@ public class ItemOutputTest {
 	public void testItemOutputFor2Book() {
 		Item item = new Item("book", Item.ItemType.BOOK, false, 12.49);
 
-		ItemTax itemTax = mock(ItemTax.class);
+		Tax itemTax = mock(ItemTax.class);
 		when(itemTax.apply(item)).thenReturn(0d);
 		
 		ItemOutput itemOutput = new ItemOutput(itemTax);
@@ -36,7 +36,7 @@ public class ItemOutputTest {
 	public void testItemOutputForMusicCD() {
 		Item item = new Item("music CD", Item.ItemType.OTHER, false, 14.99);
 
-		ItemTax itemTax = mock(ItemTax.class);
+		Tax itemTax = mock(ItemTax.class);
 		when(itemTax.apply(item)).thenReturn(1.5);
 		
 		ItemOutput itemOutput = new ItemOutput(itemTax);
@@ -48,7 +48,7 @@ public class ItemOutputTest {
 	public void testItemOutputFor3BoxOfImportedChocolate() {
 		Item item = new Item("box of imported chocolates", Item.ItemType.FOOD, true, 11.25);
 
-		ItemTax itemTax = mock(ItemTax.class);
+		Tax itemTax = mock(ItemTax.class);
 		when(itemTax.apply(item)).thenReturn(0.6);
 		
 		ItemOutput itemOutput = new ItemOutput(itemTax);
@@ -60,7 +60,7 @@ public class ItemOutputTest {
 	public void testItemOutputForBottlePerfume() {
 		Item item = new Item("bottle of perfume", Item.ItemType.OTHER, false, 18.99);
 
-		ItemTax itemTax = mock(ItemTax.class);
+		Tax itemTax = mock(ItemTax.class);
 		when(itemTax.apply(item)).thenReturn(1.9);
 		
 		ItemOutput itemOutput = new ItemOutput(itemTax);
